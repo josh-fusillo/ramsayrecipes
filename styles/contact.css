@@ -140,4 +140,15 @@ html {
   margin-bottom: .15rem;
 }
 
+hr.divider {
+  max-width: 3.25rem;
+  height: .35rem;
+  border-radius: 4px;
+  margin: auto;
+}
+
+.header-contact {
+  margin-top: 8rem;
+}
+
 

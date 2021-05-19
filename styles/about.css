@@ -135,36 +135,6 @@ html {
   width: 50%;
 }
 
-.card-image {
-  height: 30rem;
-  object-fit: cover;
-  margin-top: 2rem;
-}
-
-.card-size {
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ordering {
-  font-weight: bold;
-  font-style: italic
-}
-
-.list-group-item {
-  border-radius: 3px;
-}
-
-.select {
-  margin-top: 3rem;
-}
-
-.img-product {
-  height: 29rem;
-  width: auto;
-}
-
 .instagram {
   margin-left: .5rem;
   margin-bottom: .15rem;
@@ -177,5 +147,43 @@ hr.divider {
   margin: auto;
 }
 
+.about-img {
+  max-height: 23rem;
+  width: auto;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.header-about {
+  margin-top: 8rem;
+}
 
 
+@media only screen and (max-width: 767px) {
+  .about-img {
+    max-height: 14rem;
+    width: auto;
+    border-radius: 5px;
+  }
+}
+.row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media only screen and (min-width: 768px) {
+  .about-img {
+    max-height: 18rem;
+    width: auto;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .about-img {
+    max-height: 30rem;
+    width: auto;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+  }
+}
