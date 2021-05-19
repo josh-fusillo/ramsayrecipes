@@ -161,6 +161,7 @@ hr.divider {
   .contactform {
     width: 80%;
     margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -168,6 +169,7 @@ hr.divider {
   .contactform {
     width: 50%;
     margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
