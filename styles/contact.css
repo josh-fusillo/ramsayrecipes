@@ -152,3 +152,22 @@ hr.divider {
 }
 
 
+.contact-text {
+  width: 60%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .contactform {
+    width: 80%;
+    margin-top: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .contactform {
+    width: 50%;
+    margin-top: 2rem;
+  }
+}
+
