@@ -177,5 +177,12 @@ hr.divider {
   margin: auto;
 }
 
+@media only screen and (min-width: 992px) {
+  .titles {
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+}
+
 
 
