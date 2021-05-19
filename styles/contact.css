@@ -186,7 +186,7 @@ hr.divider {
 
 .email-icon {
   height: 7rem;
-  margin: auto;
+  margin-left: 5rem;
 }
 
 @media only screen and (max-width: 636px) {
@@ -198,9 +198,7 @@ hr.divider {
     
   }
 
-  .email-icon-container {
-    
-    margin-left: 4.5rem;
-    margin-right: auto;
+  .email-icon-container {    
+   margin-right: auto;
   }
 }
