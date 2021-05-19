@@ -81,15 +81,22 @@ main {
 }
 
 .feature-image {
-  height: 25rem;
-  width: auto;
+  height: 30rem;
+  width: 22rem;
   border-radius: 15px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1000px) {
   .mobile-feature {
     margin: auto;
   }
+
+  .feature-image {
+    height: 25rem;
+    width: 17rem;
+    border-radius: 15px;
+  }
+  
 }
 /* RESPONSIVE CSS
 -------------------------------------------------- */
