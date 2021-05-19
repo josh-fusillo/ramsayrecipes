@@ -184,5 +184,13 @@ hr.divider {
   }
 }
 
+.order-button {
+  background-color: cornflowerblue;
+}
+
+.review-button {
+  background-color: rgb(43, 143, 113);
+}
+
 
 
