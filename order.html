@@ -25,7 +25,7 @@
         }
       }
     </style>
-
+    
     <!-- Custom styles for this template -->
     <link href="./styles/order.css" rel="stylesheet" />
     <script
@@ -44,9 +44,19 @@
           .getElementById("order-form")
           .addEventListener("submit", function (event) {
             event.preventDefault();
-            // generate a five digit number for the contact_number variable
+            function orderNumber() {
+              let now = Date.now().toString();               
+              now += now + Math.floor(Math.random() * 10);
+              let number = [
+                now.slice(0, 4),
+                now.slice(4, 10),
+                now.slice(10, 14),
+              ].join("-");
+              let orderID = document.querySelector('orderID');
+              orderID.append 
 
-            // these IDs from the previous steps
+
+            }
             emailjs.sendForm("service_mxjx3iz", "template_x7tr2pe", this).then(
               function () {
                 console.log("SUCCESS!");
@@ -502,6 +512,7 @@
           cancelled. Please note that shipping costs may be applied and will be
           included in the email invoice.
         </p>
+        <div class="orderID" id="orderID" name="orderID" hidden></div>
       </form>
     </main>
 
