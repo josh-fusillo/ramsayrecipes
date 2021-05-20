@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <title>Ramsay's Recipes - Events</title>
+
+   
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="./styles/about.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_rWCesWhsBB4eCL8VQAOuJ');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('order-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+               
+                // these IDs from the previous steps
+                emailjs.sendForm('service_mxjx3iz', 'template_x7tr2pe', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        alert("We have received your order!  You will hear back within 24-48 hours!")
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+                    event.target.reset();
+            });
+        }
+
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html"
+            ><img
+              src="./assets/heropup.jpg"
+              alt="heropuppy"
+              class="navbar-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="main.html">Main</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="contact.html"                 
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#"                 
+                  >Events</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="#"                 
+                  >Order</a
+                >
+              </li>
+            <li>
+            <a
+            class="nav-link "
+            href="mailing.html"                 
+            >Join</a
+          >
+        </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="about.html"                 
+                  >About</a
+                >
+              
+            </ul>
+            <div class='tagline'>Because your dog deserves to eat healthy after a Ruff day too!</div>
+            <a href="https://www.instagram.com/ramsay_the_frug/" target="_blank"><img src="./assets/Icon-instagram.svg" class="instagram"></a>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      
+      <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        
+        
+        
+        <h1 class="text-center header-about">Order Form!</h1>
+        <hr class="divider light my-5" />
+
+        <form class="form-control d-flex flex-column order-form" id="order-form">
+          <h5>Name Info:</h5>
+          <label>First Name</label>
+          <input for="firstName" id="firstName" name="firstName" class="input" placeholder="Enter First Name">
+          <label>Last Name</label>
+          <input for="lastName" id="lastName" name="lastName" class="input" placeholder="Enter Last Name">
+          <label>Email Address</label>
+          <input for="emailAddress" id="emailAddress" name="emailAddress" class="input" placeholder="Enter Email Address">
+          <label>Phone Number</label>
+          <input for="phoneNumber" id="phoneNumber" name="phoneNumber" class="input" placeholder="Enter Phone Number">
+          <br>
+          <h5>Address Info:</h5>
+          <label>Address One</label>
+          <input for="addressOne" id="addressOne" name="addressOne" class="input" placeholder="Enter Address">
+          <label>Address Two (Optional) </label>
+          <input for="addressTwo" id="addressTwo" name="addressTwo" class="input" placeholder="Enter Address Unit/Apt/Etc..">
+          <label>City</label>
+          <input for="city" id="city" name="city" class="input" placeholder="Enter City">
+          <label>Province</label>
+          <select for="province" id="province" name="province" class="input">
+            <option value="Select a Province">Select a Province</option>
+            <option value="Alberta">Alberta</option>
+            <option value="BC">BC</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="New Brunswick">New Brunswick</option>
+            <option value="Newfoundland">Newfoundland & Labrador</option>
+            <option value="Northwest">Northwest Territories</option>
+            <option value="Nova Scotia">Nova Scotia</option>
+            <option value="Nunavut">Nunavut</option>
+            <option value="Ontario">Ontario</option>
+            <option value="PEI">Prince Edward Island</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Saskatchewan">Saskatchewan</option>
+            <option value="Yukon">Yukon</option>
+            </select>
+            <label>Postal Code</label>
+            <input for="postalCode" id="postalCode" name="postalCode" class="input" placeholder="Enter Postal Code">
+            <br>
+            <h5>Order Info:</h5>
+            <small class="">Pick up to 4 options per order.</small>
+            <label>Order Item 1</label>
+          <select for="itemOne" id="itemOne" name="itemOne" class="input">
+            <option value="None">Select an item to order...</option>
+            <option value="$8 - Apple & Coconut Flakes 100g">$8 - Apple & Coconut Flakes 100g</option>
+            <option value="$15 - Apple & Coconut Flakes x 2 100g">$15 - Apple & Coconut Flakes x 2 - 100g</option>
+            <option value="$12 - Apple & Coconut Flakes 195g">$12 - Apple & Coconut Flakes 195g</option>
+            <option value="$20 - Apple & Coconut Flakes x 2 390g">$20 - Apple & Coconut Flakes x 2 - 390g</option>
+            <option value="$8 - Carrot & Turmeric 100g">$8 - Carrot & Turmeric 100g</option>
+            <option value="$15 - Carrot & Turmeric x 2 100g">$15 - Carrot & Turmeric  x 2 - 100g</option>
+            <option value="$12 - Carrot & Turmeric 195g">$12 - Carrot & Turmeric 195g</option>
+            <option value="$12 - Carrot & Turmeric x 2 390g">$20 - Carrot & Turmeric  x 2 - 390g</option>            
+            <option value="$8 - Sweet Pea & Mint 100g">$8 - Sweet Pea & Mint 100g</option>
+            <option value="$15 - Sweet Pea & Mint x 2 100g">$15 - Sweet Pea & Mint x 2 - 100g</option>
+            <option value="$12 - Sweet Pea & Mint 195g">$12 - Sweet Pea & Mint 195g</option>
+            <option value="$20 - Sweet Pea & Mint x 2 390g">$20 - Sweet Pea & Mint x 2 - 390g</option>
+            <option value="$8 - Sweet Potato & Banana 100g">$8 - Sweet Potato & Banana 100g</option>
+            <option value="$15 - Sweet Potato & Banana x 2 100g">$15 - Sweet Potato & Banana  x 2 - 100g</option>
+            <option value="$12 - Sweet Potato & Banana 195g">$12 - Sweet Potato & Banana 195g</option>
+            <option value="$12 - Sweet Potato & Banana x 2 390g">$20 - Sweet Potato & Banana  x 2 - 390g</option>
+            
+          </select>
+          <label>Order Item 2</label>
+          <select for="itemTwo" id="itemTwo" name="itemTwo" class="input">
+            <option value="None">Select an item to order...</option>
+            <option value="$8 - Apple & Coconut Flakes 100g">$8 - Apple & Coconut Flakes 100g</option>
+            <option value="$15 - Apple & Coconut Flakes x 2 100g">$15 - Apple & Coconut Flakes x 2 - 100g</option>
+            <option value="$12 - Apple & Coconut Flakes 195g">$12 - Apple & Coconut Flakes 195g</option>
+            <option value="$20 - Apple & Coconut Flakes x 2 390g">$20 - Apple & Coconut Flakes x 2 - 390g</option>
+            <option value="$8 - Carrot & Turmeric 100g">$8 - Carrot & Turmeric 100g</option>
+            <option value="$15 - Carrot & Turmeric x 2 100g">$15 - Carrot & Turmeric  x 2 - 100g</option>
+            <option value="$12 - Carrot & Turmeric 195g">$12 - Carrot & Turmeric 195g</option>
+            <option value="$12 - Carrot & Turmeric x 2 390g">$20 - Carrot & Turmeric  x 2 - 390g</option>
+            <option value="$8 - Sweet Pea & Mint 100g">$8 - Sweet Pea & Mint 100g</option>
+            <option value="$15 - Sweet Pea & Mint x 2 100g">$15 - Sweet Pea & Mint x 2 - 100g</option>
+            <option value="$12 - Sweet Pea & Mint 195g">$12 - Sweet Pea & Mint 195g</option>
+            <option value="$20 - Sweet Pea & Mint x 2 390g">$20 - Sweet Pea & Mint x 2 - 390g</option>
+            <option value="$8 - Sweet Potato & Banana 100g">$8 - Sweet Potato & Banana 100g</option>
+            <option value="$15 - Sweet Potato & Banana x 2 100g">$15 - Sweet Potato & Banana  x 2 - 100g</option>
+            <option value="$12 - Sweet Potato & Banana 195g">$12 - Sweet Potato & Banana 195g</option>
+            <option value="$12 - Sweet Potato & Banana x 2 390g">$20 - Sweet Potato & Banana  x 2 - 390g</option>
+            
+          </select>
+          <label>Order Item 3</label>
+          <select for="itemThree" id="itemThree" name="itemThree" class="input">
+            <option value="None">Select an item to order...</option>
+            <option value="$8 - Apple & Coconut Flakes 100g">$8 - Apple & Coconut Flakes 100g</option>
+            <option value="$15 - Apple & Coconut Flakes x 2 100g">$15 - Apple & Coconut Flakes x 2 - 100g</option>
+            <option value="$12 - Apple & Coconut Flakes 195g">$12 - Apple & Coconut Flakes 195g</option>
+            <option value="$20 - Apple & Coconut Flakes x 2 390g">$20 - Apple & Coconut Flakes x 2 - 390g</option>
+            <option value="$8 - Carrot & Turmeric 100g">$8 - Carrot & Turmeric 100g</option>
+            <option value="$15 - Carrot & Turmeric x 2 100g">$15 - Carrot & Turmeric  x 2 - 100g</option>
+            <option value="$12 - Carrot & Turmeric 195g">$12 - Carrot & Turmeric 195g</option>
+            <option value="$12 - Carrot & Turmeric x 2 390g">$20 - Carrot & Turmeric  x 2 - 390g</option>
+            <option value="$8 - Sweet Pea & Mint 100g">$8 - Sweet Pea & Mint 100g</option>
+            <option value="$15 - Sweet Pea & Mint x 2 100g">$15 - Sweet Pea & Mint x 2 - 100g</option>
+            <option value="$12 - Sweet Pea & Mint 195g">$12 - Sweet Pea & Mint 195g</option>
+            <option value="$20 - Sweet Pea & Mint x 2 390g">$20 - Sweet Pea & Mint x 2 - 390g</option>
+            <option value="$8 - Sweet Potato & Banana 100g">$8 - Sweet Potato & Banana 100g</option>
+            <option value="$15 - Sweet Potato & Banana x 2 100g">$15 - Sweet Potato & Banana  x 2 - 100g</option>
+            <option value="$12 - Sweet Potato & Banana 195g">$12 - Sweet Potato & Banana 195g</option>
+            <option value="$12 - Sweet Potato & Banana x 2 390g">$20 - Sweet Potato & Banana  x 2 - 390g</option>
+          </select>
+          <label>Order Item 4</label>
+          <select for="itemFour" id="itemFour" name="itemFour" class="input">
+            <option value="None">Select an item to order...</option>
+            <option value="$8 - Apple & Coconut Flakes 100g">$8 - Apple & Coconut Flakes 100g</option>
+            <option value="$15 - Apple & Coconut Flakes x 2 100g">$15 - Apple & Coconut Flakes x 2 - 100g</option>
+            <option value="$12 - Apple & Coconut Flakes 195g">$12 - Apple & Coconut Flakes 195g</option>
+            <option value="$20 - Apple & Coconut Flakes x 2 390g">$20 - Apple & Coconut Flakes x 2 - 390g</option>
+            <option value="$8 - Carrot & Turmeric 100g">$8 - Carrot & Turmeric 100g</option>
+            <option value="$15 - Carrot & Turmeric x 2 100g">$15 - Carrot & Turmeric  x 2 - 100g</option>
+            <option value="$12 - Carrot & Turmeric 195g">$12 - Carrot & Turmeric 195g</option>
+            <option value="$12 - Carrot & Turmeric x 2 390g">$20 - Carrot & Turmeric  x 2 - 390g</option>
+            <option value="$8 - Sweet Pea & Mint 100g">$8 - Sweet Pea & Mint 100g</option>
+            <option value="$15 - Sweet Pea & Mint x 2 100g">$15 - Sweet Pea & Mint x 2 - 100g</option>
+            <option value="$12 - Sweet Pea & Mint 195g">$12 - Sweet Pea & Mint 195g</option>
+            <option value="$20 - Sweet Pea & Mint x 2 390g">$20 - Sweet Pea & Mint x 2 - 390g</option>
+            <option value="$8 - Sweet Potato & Banana 100g">$8 - Sweet Potato & Banana 100g</option>
+            <option value="$15 - Sweet Potato & Banana x 2 100g">$15 - Sweet Potato & Banana  x 2 - 100g</option>
+            <option value="$12 - Sweet Potato & Banana 195g">$12 - Sweet Potato & Banana 195g</option>
+            <option value="$12 - Sweet Potato & Banana x 2 390g">$20 - Sweet Potato & Banana  x 2 - 390g</option>
+          </select>
+          
+          <input type="submit" class="submit btn btn-primary mt-3" value="Submit Order">  
+
+          <p class="mt-2 fw-bold">Clicking submit order does not complete the order.  You will receive an email within 24-48 hours with the complete total to confirm your order request.  You will need to send an email money transfer or paypal money request in order to complete the order and have your order processed!  If the funds are not received within 2 business days the order will be automatically cancelled.</p>
+
+        </form>
+
+        
+
+
+   </main>
+  
+  
+
+     
+        
+
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <!-- /.container -->
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>
+          &copy; 2021 Janel Wiebe          
+        </p>
+      </footer>
+    </main>
+
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>  
+   
+    
+   
+  </body>
+</html>
