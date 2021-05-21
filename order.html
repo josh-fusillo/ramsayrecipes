@@ -25,7 +25,7 @@
         }
       }
     </style>
-    
+
     <!-- Custom styles for this template -->
     <link href="./styles/order.css" rel="stylesheet" />
     <script
@@ -45,17 +45,16 @@
           .addEventListener("submit", function (event) {
             event.preventDefault();
             function orderNumber() {
-              let now = Date.now().toString();               
+              let now = Date.now().toString();
               now += now + Math.floor(Math.random() * 10);
               let number = [
                 now.slice(0, 4),
                 now.slice(4, 10),
                 now.slice(10, 14),
               ].join("-");
-              let orderID = document.querySelector('orderID');
-              orderID.append 
-
-
+              let orderID = document.querySelector("orderID");
+              orderID.appendChild(number);
+              console.log(number);
             }
             emailjs.sendForm("service_mxjx3iz", "template_x7tr2pe", this).then(
               function () {
@@ -124,7 +123,7 @@
             <div class="tagline">
               Because your dog deserves to eat healthy after a Ruff day too!
             </div>
-            <a href="https://www.instagram.com/ramsay_the_frug/" target="_blank"
+            <a href="https://www.instagram.com/ramsay.recipe/" target="_blank"
               ><img src="./assets/Icon-instagram.svg" class="instagram"
             /></a>
           </div>
@@ -140,7 +139,7 @@
       <h1 class="text-center header-about">Order Form!</h1>
       <hr class="divider light my-5" />
 
-      <form class="form-control d-flex flex-column order-form" id="order-form">
+      <form class="form-control d-flex flex-column order-form mb-4" id="order-form">
         <h5>Name Info:</h5>
         <label>First Name</label>
         <input
@@ -503,14 +502,29 @@
           value="Submit Order"
         />
 
-        <p class="mt-2 fw-bold">
-          Clicking submit order does not complete the order. You will receive an
-          email within 24-48 hours with the complete total to confirm your order
-          request. You will need to send an email money transfer or paypal money
-          request to complete the order and have it processed! If the funds are
-          not received within 2 business days the order will be automatically
-          cancelled. Please note that shipping costs may be applied and will be
-          included in the email invoice.
+        <p class="mt-1 fw-bold">
+          <li>
+            Clicking submit order does not complete the order.
+          </li>
+          <li>
+            You will receive an
+            email within 24-48 hours with the complete total to confirm your order
+            request. 
+          </li>
+          <li>
+            You will need to send an email money transfer or paypal money
+            request to complete the order and have it processed!
+          </li>
+          <li>
+            If the funds are
+            not received within 2 business days the order will be automatically
+            cancelled.
+          </li>
+          <li>
+            Please note that shipping costs may be applied and will be
+            included in the email invoice.
+          </li>
+            
         </p>
         <div class="orderID" id="orderID" name="orderID" hidden></div>
       </form>
@@ -521,7 +535,7 @@
     <!-- /.container -->
 
     <!-- FOOTER -->
-    <footer class="container">
+    <footer class="container mt-2">
       <p class="float-end"><a href="#">Back to top</a></p>
       <p>&copy; 2021 Janel Wiebe</p>
     </footer>
