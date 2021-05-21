@@ -192,5 +192,7 @@ hr.divider {
   background-color: rgb(43, 143, 113);
 }
 
-
+.products-image {
+  border-radius: 5px;
+}
 
