@@ -187,3 +187,9 @@ hr.divider {
     margin-bottom: 2rem;
   }
 }
+
+.events-image {
+  height: 25rem;
+  width: auto;
+  border-radius: 5px;
+}
