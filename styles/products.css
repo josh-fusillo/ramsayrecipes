@@ -233,3 +233,22 @@ hr.divider {
     content: counter(rateme) '/5';
 }
 
+@media only screen and (max-width: 488px) {
+  .star {
+    font-size: 1.5rem;
+  }
+  .stars {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .star {
+    font-size: .5rem;
+    margin-top: 1rem;
+  }
+  .stars {
+    font-size: .5rem;
+  }
+}
+
