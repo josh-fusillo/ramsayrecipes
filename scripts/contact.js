@@ -1,4 +1,8 @@
-
+// modal for sending contact
+let contactSend = () => {
+  $("#contactModal").modal("show");
+    setTimeout(() => $("#contactModal").modal("hide"), 2500)
+}
 
 
 (function () {
@@ -15,10 +19,7 @@ window.onload = function () {
       // these IDs from the previous steps
       emailjs.sendForm("service_mxjx3iz", "template_wiw8kem", this).then(
         function () {
-          console.log("SUCCESS!");
-          alert(
-            "Thanks for your contact information - I will get back to you shortly!"
-          );
+          console.log("SUCCESS!");          
         },
         function (error) {
           console.log("FAILED...", error);
