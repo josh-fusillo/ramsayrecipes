@@ -200,3 +200,7 @@ input {
  }
 }
 
+.required {
+  color: red;
+}
+

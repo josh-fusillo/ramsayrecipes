@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
 
-    <title>Ramsay's Recipes - Events</title>
+    <title>Ramsay's Recipes - Order Form</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -28,49 +28,12 @@
 
     <!-- Custom styles for this template -->
     <link href="./styles/order.css" rel="stylesheet" />
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
-    ></script>
+
+    
     <script type="text/javascript">
-      (function () {
-        // https://dashboard.emailjs.com/admin/integration
-        emailjs.init("user_rWCesWhsBB4eCL8VQAOuJ");
-      })();
+      
     </script>
-    <script type="text/javascript">
-      window.onload = function () {
-        document
-          .getElementById("order-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-            function orderNumber() {
-              let now = Date.now().toString();
-              now += now + Math.floor(Math.random() * 10);
-              let number = [
-                now.slice(0, 4),
-                now.slice(4, 10),
-                now.slice(10, 14),
-              ].join("-");
-              let orderID = document.querySelector("orderID");
-              orderID.appendChild(number);
-              console.log(number);
-            }
-            emailjs.sendForm("service_mxjx3iz", "template_x7tr2pe", this).then(
-              function () {
-                console.log("SUCCESS!");
-                alert(
-                  "We have received your order!  You will hear back within 24-48 hours!"
-                );
-              },
-              function (error) {
-                console.log("FAILED...", error);
-              }
-            );
-            event.target.reset();
-          });
-      };
-    </script>
+    
   </head>
   <body>
     <header>
@@ -139,97 +102,107 @@
       <h1 class="text-center header-about">Order Form!</h1>
       <hr class="divider light my-5" />
 
-      <form class="form-control d-flex flex-column order-form mb-4" id="order-form">
+      <form
+        class="form-control d-flex flex-column order-form mb-4"
+        id="order-form"
+        name="order-form"
+        
+      >
+      
         <h5>Name Info:</h5>
-        <label>First Name</label>
+        <label>First Name <span class="required">*</span></label>
         <input
           for="firstName"
           id="firstName"
           name="firstName"
           class="input"
           placeholder="Enter First Name"
+          required
+          onkeyup="checkform()"
+          
         />
-        <label>Last Name</label>
+        <label>Last Name <span class="required">*</span></label>
         <input
           for="lastName"
           id="lastName"
           name="lastName"
           class="input"
           placeholder="Enter Last Name"
+          required
+          onkeyup="checkform()"
         />
-        <label>Email Address</label>
+        <label>Email Address <span class="required">*</span></label>
         <input
           for="emailAddress"
           id="emailAddress"
           name="emailAddress"
           class="input"
           placeholder="Enter Email Address"
+          required
+          onkeyup="checkform()"
         />
-        <label>Phone Number</label>
+        <label>Phone Number <span class="required">*</span></label>
         <input
           for="phoneNumber"
           id="phoneNumber"
           name="phoneNumber"
           class="input"
           placeholder="Enter Phone Number"
+          required
+          onkeyup="checkform()"
         />
         <br />
         <h5>Address Info:</h5>
-        <label>Address One</label>
+        <label>Address One <span class="required">*</span></label>
         <input
           for="addressOne"
           id="addressOne"
           name="addressOne"
           class="input"
           placeholder="Enter Address"
+          required
+          onkeyup="checkform()"
         />
-        <label>Address Two (Optional) </label>
+        <label>Address Two </label>
         <input
           for="addressTwo"
           id="addressTwo"
           name="addressTwo"
           class="input"
-          placeholder="Enter Address Unit/Apt/Etc.."
+          placeholder="Enter Address Unit/Apt/Etc.."         
+          
         />
-        <label>City</label>
+        <label>City <span class="required">*</span></label>
         <input
           for="city"
           id="city"
           name="city"
           class="input"
           placeholder="Enter City"
+          required
+          onkeyup="checkform()"
         />
-        <label>Province</label>
-        <select for="province" id="province" name="province" class="input">
-          <option value="Select a Province">Select a Province</option>
-          <option value="Alberta">Alberta</option>
-          <option value="British Columbia">British Columbia</option>
-          <option value="Manitoba">Manitoba</option>
-          <option value="New Brunswick">New Brunswick</option>
-          <option value="Newfoundland">Newfoundland & Labrador</option>
-          <option value="Northwest">Northwest Territories</option>
-          <option value="Nova Scotia">Nova Scotia</option>
-          <option value="Nunavut">Nunavut</option>
-          <option value="Ontario">Ontario</option>
-          <option value="PEI">Prince Edward Island</option>
-          <option value="Quebec">Quebec</option>
-          <option value="Saskatchewan">Saskatchewan</option>
-          <option value="Yukon">Yukon</option>
-        </select>
-        <label>Postal Code</label>
+        <label>Province <span class="required">*</span></label>
+        <input for="province" id="province" name="province" class="input" required placeholder="Enter Province"/>
+         
+        
+        <label>Postal Code <span class="required">*</span></label>        
         <input
           for="postalCode"
           id="postalCode"
           name="postalCode"
           class="input"
           placeholder="Enter Postal Code"
+          required
+          onkeyup="checkform()"
+          
         />
         <br />
-        <h5>Order Info:</h5>
+        <h5>Order Info:</h5>       
         <small class="">Pick up to 4 options per order...</small>
-        <label>Order Item 1</label>
-        <select for="itemOne" id="itemOne" name="itemOne" class="input">
-          <option value="None">Select an item to order...</option>
+        <label>Order Item 1 <span class="required">*</span></label>
+        <select for="itemOne" id="itemOne" name="itemOne" class="input" required onchange="enableButton()">
+          <option value="" disabled selected>Select your order item...</option>
           <option value="$8 - Apple & Coconut Flakes 100g">
             $8 - Apple & Coconut Flakes 100g
           </option>
@@ -496,37 +469,36 @@
           </option>
         </select>
 
+        
         <input
           type="submit"
+          id="submitbutton"
           class="submit btn btn-primary mt-3 bg-dark"
           value="Submit Order"
+          disabled
+         
+          
         />
 
         <p class="mt-1 fw-bold">
+          <li>Clicking submit order does not complete the order.</li>
           <li>
-            Clicking submit order does not complete the order.
-          </li>
-          <li>
-            You will receive an
-            email within 24-48 hours with the complete total to confirm your order
-            request. 
+            You will receive an email within 24-48 hours with the complete total
+            to confirm your order request.
           </li>
           <li>
             You will need to send an email money transfer or paypal money
             request to complete the order and have it processed!
           </li>
           <li>
-            If the funds are
-            not received within 2 business days the order will be automatically
-            cancelled.
+            If the funds are not received within 2 business days the order will
+            be automatically cancelled.
           </li>
           <li>
-            Please note that shipping costs may be applied and will be
-            included in the email invoice.
+            Please note that shipping costs may be applied and will be included
+            in the email invoice.
           </li>
-            
         </p>
-        <div class="orderID" id="orderID" name="orderID" hidden></div>
       </form>
     </main>
 
@@ -539,7 +511,13 @@
       <p class="float-end"><a href="#">Back to top</a></p>
       <p>&copy; 2021 Janel Wiebe</p>
     </footer>
-
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./scripts/order.js"></script>
   </body>
 </html>
