@@ -196,3 +196,8 @@ hr.divider {
   border-radius: 5px;
 }
 
+.review-box {
+  border-radius: 4px;
+  width: 100%;
+}
+

@@ -37,7 +37,6 @@
 
     <!-- Custom styles for this template -->
     <link href="../styles/products.css" rel="stylesheet" />
-  
   </head>
   <body>
     <header>
@@ -77,11 +76,7 @@
                 <a class="nav-link" href="../events.html">Events</a>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="../order.html"                 
-                  >Order</a
-                >
+                <a class="nav-link" href="../order.html">Order</a>
               </li>
               <li>
                 <a class="nav-link" href="../mailing.html">Join</a>
@@ -94,8 +89,9 @@
             <div class="tagline">
               Because your dog deserves to eat healthy after a Ruff day too!
             </div>
-            <a href="https://www.instagram.com/ramsay.recipe/" target="_blank"><img src="../assets/Icon-instagram.svg" class="instagram"></a>
-
+            <a href="https://www.instagram.com/ramsay.recipe/" target="_blank"
+              ><img src="../assets/Icon-instagram.svg" class="instagram"
+            /></a>
           </div>
         </div>
       </nav>
@@ -111,7 +107,7 @@
               <a class="list-group-item bg-dark active"
                 ><li>Apple & Coconut Flakes</li></a
               >
-              
+
               <a class="list-group-item" href="carrot-turmeric.html"
                 ><li>Carrot & Turmeric</li></a
               >
@@ -130,8 +126,6 @@
               <a class="list-group-item" href="sweet-bark.html"
                 ><li>Sweet Potato & Coconut Bark</li></a
               >
-              
-             
             </div>
           </div>
           <div class="col-lg-9">
@@ -144,23 +138,15 @@
               <div class="card-body">
                 <h3 class="card-title">Apple & Coconut Flakes</h3>
                 <h6>Variations:</h6>
-                <li>
-                  $8 - Small bag - 100g
-                </li>
-                <li>
-                  $15 - Small bag x 2 - 200g
-                </li>
-                <li>
-                  $12 - Large bag - 195g
-                </li>
-                <li>
-                  $20 - Large bag x 2 - 390g 
-                </li>
-                <br>
+                <li>$8 - Small bag - 100g</li>
+                <li>$15 - Small bag x 2 - 200g</li>
+                <li>$12 - Large bag - 195g</li>
+                <li>$20 - Large bag x 2 - 390g</li>
+                <br />
                 <p class="card-text">
-                  <b>Ingredients:</b> Apples, Coconut Oil, Ramsay's Flour Mix (GF Oat Flour, Coconut
-                  Flour, Brown Rice Flour), Peanut Butter, Eggs, Turmeric,
-                  Rosemary, Parsley
+                  <b>Ingredients:</b> Apples, Coconut Oil, Ramsay's Flour Mix
+                  (GF Oat Flour, Coconut Flour, Brown Rice Flour), Peanut
+                  Butter, Eggs, Turmeric, Rosemary, Parsley
                 </p>
                 <span class="text-warning">☆☆☆☆☆</span>
                 - has not been rated yet.
@@ -168,7 +154,9 @@
                   All products are available by special order only - please use
                   the order form!
                 </div>
-                <a href="../order.html" class="btn btn-primary order-button">Order Form</a>
+                <a href="../order.html" class="btn btn-primary order-button"
+                  >Order Form</a
+                >
               </div>
             </div>
             <div class="card card-outline-secondary my-4">
@@ -176,20 +164,99 @@
               <div class="card-body">
                 <small class="small">Be the first to leave a review!</small>
                 <hr />
-                <a class="btn btn-success review-button" href="#!">Leave a Review</a>
+                <button
+                  type="button"
+                  class="btn btn-primary review-button"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
+                  onclick="reviewButton()"
+                >
+                  Leave a Review
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Footer-->
-      
-      <!-- Bootstrap core JS-->
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- Core theme JS-->
-    
     </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Tell us what you think!
+            </h5>
+          </div>
+          <form class="review-form">
+            <div class="modal-body">
+              <input
+                type="text"
+                value="Apple & Coconut Flakes"
+                id="product-name"
+                class="review-box"
+                name="product"
+                style='pointer-events: none;'
+              /><br />
+              <label>Name:</label>
+              <input class="review-box" name="name" /><br />
+              <label>Review:</label>
+              <textarea class="review-box" name="review"> </textarea><br />
+              <label>Rating:</label>
+              <br />
+              <small
+                ><b
+                  ><i
+                    >All reivews are reviewed for appropriate content and if
+                    approved, it will be posted for within 1-2 business days!</i
+                  ></b
+                ></small
+              >
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn class btn-secondary reload"
+                id="reload-button"
+                data-dismiss="modal"                
+                onclick="reviewSend()"
+              > 
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div
+      class="modal fade"
+      id="exampleModalTwo"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">
+              Thank you for your feedback!
+            </h4>
+          </div>          
+        </div>
+      </div>
+    </div>
 
     <footer class="container">
       <p class="float-end"><a href="#">Back to top</a></p>
@@ -197,5 +264,16 @@
     </footer>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+    <script src="../scripts/products.js"></script>
   </body>
 </html>
