@@ -9,6 +9,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+   
 
     <style>
       .bd-placeholder-img {
@@ -29,11 +31,7 @@
     <!-- Custom styles for this template -->
     <link href="./styles/order.css" rel="stylesheet" />
 
-    
-    <script type="text/javascript">
-      
-    </script>
-    
+    <script type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -106,9 +104,7 @@
         class="form-control d-flex flex-column order-form mb-4"
         id="order-form"
         name="order-form"
-        
       >
-      
         <h5>Name Info:</h5>
         <label>First Name <span class="required">*</span></label>
         <input
@@ -119,7 +115,6 @@
           placeholder="Enter First Name"
           required
           onkeyup="checkform()"
-          
         />
         <label>Last Name <span class="required">*</span></label>
         <input
@@ -169,8 +164,7 @@
           id="addressTwo"
           name="addressTwo"
           class="input"
-          placeholder="Enter Address Unit/Apt/Etc.."         
-          
+          placeholder="Enter Address Unit/Apt/Etc.."
         />
         <label>City <span class="required">*</span></label>
         <input
@@ -183,10 +177,16 @@
           onkeyup="checkform()"
         />
         <label>Province <span class="required">*</span></label>
-        <input for="province" id="province" name="province" class="input" required placeholder="Enter Province"/>
-         
-        
-        <label>Postal Code <span class="required">*</span></label>        
+        <input
+          for="province"
+          id="province"
+          name="province"
+          class="input"
+          required
+          placeholder="Enter Province"
+        />
+
+        <label>Postal Code <span class="required">*</span></label>
         <input
           for="postalCode"
           id="postalCode"
@@ -195,13 +195,19 @@
           placeholder="Enter Postal Code"
           required
           onkeyup="checkform()"
-          
         />
         <br />
-        <h5>Order Info:</h5>       
+        <h5>Order Info:</h5>
         <small class="">Pick up to 4 options per order...</small>
         <label>Order Item 1 <span class="required">*</span></label>
-        <select for="itemOne" id="itemOne" name="itemOne" class="input" required onchange="enableButton()">
+        <select
+          for="itemOne"
+          id="itemOne"
+          name="itemOne"
+          class="input"
+          required
+          onchange="enableButton()"
+        >
           <option value="" disabled selected>Select your order item...</option>
           <option value="$8 - Apple & Coconut Flakes 100g">
             $8 - Apple & Coconut Flakes 100g
@@ -469,41 +475,54 @@
           </option>
         </select>
 
-        
         <input
           type="submit"
           id="submitbutton"
           class="submit btn btn-primary mt-3 bg-dark"
           value="Submit Order"
-          disabled
-         
-          
+          disabled         
         />
 
         <p class="mt-1 fw-bold">
           <li>Clicking submit order does not complete the order.</li>
           <li>
-            You will receive an email within 24-48 hours with the complete total
-            to confirm your order request.
+            You will receive an email within 24-48 hours with the final total to
+            confirm your order request.
           </li>
           <li>
-            Accepted payment forms: Email Money Transfer or Online payment via Credit Card/Paypal
+            Shipping costs will be calculated and included in the email invoice.
+          </li>
+          <li>
+            Accepted payment forms: Email Money Transfer or Online payment via
+            Credit Card/Paypal
           </li>
           <li>
             If the funds are not received within 2 business days the order will
             be automatically cancelled.
           </li>
-          <li>
-            Please note that shipping costs will be calculated and included
-            in the email invoice.
-          </li>
         </p>
       </form>
     </main>
 
-    <!-- /END THE FEATURETTES -->
 
-    <!-- /.container -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thank you for your order!</h5>
+       
+      </div>
+      <div class="modal-body">
+        We will be in touch within 1 - 2 business days.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary reload" onclick="window.location.reload()" id="reload-button" data-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- FOOTER -->
     <footer class="container mt-2">
@@ -517,6 +536,7 @@
     ></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./scripts/order.js"></script>
   </body>
 </html>

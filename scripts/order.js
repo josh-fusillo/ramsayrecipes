@@ -1,5 +1,5 @@
 
-
+// checkform for validation
 let checkform = () => {  
   let f = document.forms["order-form"].elements;
   let cansubmit = true;
@@ -13,6 +13,8 @@ let checkform = () => {
 }
 window.onload = checkform;
 
+
+//checkform for dropdown validation
 function enableButton()
 {
     var selectelem = document.getElementById('itemOne');
@@ -34,10 +36,9 @@ window.onload = function () {
       event.preventDefault();     
       emailjs.sendForm("service_mxjx3iz", "template_x7tr2pe", this).then(
         function () {
-          console.log("SUCCESS!");
-          alert(
-            "We have received your order!  You will hear back within 24-48 hours!"
-          );
+          console.log("SUCCESS!"); 
+          $('#exampleModal').modal("toggle") 
+                
         },
         function (error) {
           console.log("FAILED...", error);
@@ -46,6 +47,11 @@ window.onload = function () {
       );
       event.target.reset();
     });
+    
 };
+
+
+
+
 
 
