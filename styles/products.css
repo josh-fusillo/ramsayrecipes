@@ -242,7 +242,7 @@ hr.divider {
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 440px) {
+@media only screen and (min-width: 320px) and (max-width: 418px) {
   .star {
     font-size: .5rem;
     margin-top: 1rem;
