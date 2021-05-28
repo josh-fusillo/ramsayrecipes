@@ -78,6 +78,7 @@ window.onload = () => {
       data: JSON.stringify(data),
       contentType: 'application/json'
     }).done(function() {
+      event.target.reset();
       console.log('Your mail is sent!');
     }).fail(function(error) {
       console.log('Oops... ' + JSON.stringify(error));

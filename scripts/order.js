@@ -62,6 +62,7 @@ window.onload = () => {
       contentType: 'application/json'
     }).done(function() {
       $('#exampleModal').modal("toggle") 
+      event.target.reset();
       console.log('Your mail is sent!');
     }).fail(function(error) {
       console.log('Oops... ' + JSON.stringify(error));
