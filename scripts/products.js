@@ -1,33 +1,20 @@
+// review button opens modal
+
 let reviewButton = () => {
   $("#exampleModal").modal("show");
 };
 
-(function () {
-  emailjs.init("user_rWCesWhsBB4eCL8VQAOuJ");
-})();
 
-window.onload = function () {
-  document
-    .querySelector(".review-form")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      emailjs.sendForm("service_mxjx3iz", "template_csuhnz3", this).then(
-        function () {
-          console.log("SUCCESS!");
-        },
-        function (error) {
-          console.log("FAILED...", error);
-        }
-      );
-      event.target.reset();
-    });
-};
+
+// sends review to email template and shows completed modal
 
 let reviewSend = () => {
   $("#exampleModal").modal("hide");
   $("#exampleModalTwo").modal("show");
   setTimeout(() => $("#exampleModalTwo").modal("hide"), 3000);
 };
+
+// stars rating system
 
 document.addEventListener("DOMContentLoaded", function () {
   let stars = document.querySelectorAll(".star");
@@ -60,4 +47,41 @@ function setRating(ev) {
     }
   });
   document.querySelector(".stars").setAttribute("data-rating", num);
+  
+ 
+}
+
+
+// api to emailJS
+
+window.onload = () => {
+  document
+  .querySelector('.review-form')
+  .addEventListener("submit", sendEmail = (event) => {
+  event.preventDefault();
+  
+    let data = {
+      service_id: 'service_mxjx3iz',
+      template_id: 'template_csuhnz3',
+      user_id: 'user_rWCesWhsBB4eCL8VQAOuJ',
+      template_params: {
+          'product': event.target.product.value,
+          'name': event.target.name.value,
+          'review': event.target.review.value,
+          'rating': $(".stars").attr("data-rating")
+          
+          
+      }
+    };
+    
+    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+      type: 'POST',
+      data: JSON.stringify(data),
+      contentType: 'application/json'
+    }).done(function() {
+      console.log('Your mail is sent!');
+    }).fail(function(error) {
+      console.log('Oops... ' + JSON.stringify(error));
+    });
+  })
 }
