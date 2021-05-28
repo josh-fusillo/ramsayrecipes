@@ -51,7 +51,6 @@ function setRating(ev) {
  
 }
 
-
 // api to emailJS
 
 window.onload = () => {
