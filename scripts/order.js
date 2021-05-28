@@ -28,29 +28,46 @@ function enableButton()
 })();
 
 
-//Send email to emailJS
-window.onload = function () {
+
+window.onload = () => {
   document
-    .querySelector(".order-form")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();     
-      emailjs.sendForm("service_mxjx3iz", "template_x7tr2pe", this).then(
-        function () {
-          console.log("SUCCESS!"); 
-          $('#exampleModal').modal("toggle") 
-                
-        },
-        function (error) {
-          console.log("FAILED...", error);
-        }
-        
-      );
-      event.target.reset();
-    });
+  .querySelector('.order-form')
+  .addEventListener("submit", sendEmail = (event) => {
+  event.preventDefault();
+  
+    let data = {
+      service_id: 'service_mxjx3iz',
+      template_id: 'template_x7tr2pe',
+      user_id: 'user_rWCesWhsBB4eCL8VQAOuJ',
+      template_params: {
+          'firstName': event.target.firstName.value,
+          'lastName': event.target.lastName.value,
+          'emailAddress': event.target.emailAddress.value,
+          'phoneNumber': event.target.phoneNumber.value,
+          'addressOne': event.target.addressOne.value,
+          'addressTwo': event.target.addressTwo.value,
+          'city': event.target.city.value,
+          'province': event.target.province.value,
+          'postalCode': event.target.postalCode.value,
+          'itemOne': event.target.itemOne.value,
+          'itemTwo': event.target.itemTwo.value,
+          'itemThree': event.target.itemThree.value,
+          'itemFour': event.target.itemFour.value          
+      }
+    };
     
-};
-
-
+    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+      type: 'POST',
+      data: JSON.stringify(data),
+      contentType: 'application/json'
+    }).done(function() {
+      $('#exampleModal').modal("toggle") 
+      console.log('Your mail is sent!');
+    }).fail(function(error) {
+      console.log('Oops... ' + JSON.stringify(error));
+    });
+  })
+}
 
 
 
