@@ -106,6 +106,8 @@
         <form
           class="form-control d-flex flex-column contactform"
           id="contact-form"
+          action="https://formsubmit.co/josh.fusillo@gmail.com" 
+          method="POST"
         >
           <label>Name</label>
           <input class="input-border" type="text" name="name" required />
@@ -115,12 +117,16 @@
           <input class="input-border" type="phone" name="phone" required />
           <label>Message</label>
           <textarea class="textarea-border" name="message" required></textarea>
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="http://127.0.0.1:5500/contact.html">
           <br />
           <input
             class="btn btn-primary bg-dark"
             id="submitcontact"
             type="submit"
             value="Submit"
+            onclick="contactSend()"
           />
         </form>
 
@@ -136,11 +142,11 @@
           <div class="contact-details-email">
             <h4 class="text-center">ramsayrecipes@gmail.com</h4>
             <div class="email-icon-container">
-              <img
+              <a href="mailto:ramsayrecipes@gmail.com"><img
                 src="./assets/email-icon.png"
                 alt="email icon"
                 class="email-icon"
-              />
+              /></a>
             </div>
           </div>
         </div>
