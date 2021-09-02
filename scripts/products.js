@@ -47,41 +47,38 @@ function setRating(ev) {
     }
   });
   document.querySelector(".stars").setAttribute("data-rating", num);
-  
- 
+
+
 }
 
 // api to emailJS
 
 window.onload = () => {
   document
-  .querySelector('.review-form')
-  .addEventListener("submit", sendEmail = (event) => {
-  event.preventDefault();
-  
-    let data = {
-      service_id: 'service_mxjx3iz',
-      template_id: 'template_csuhnz3',
-      user_id: 'user_rWCesWhsBB4eCL8VQAOuJ',
-      template_params: {
-          'product': event.target.product.value,
-          'name': event.target.name.value,
-          'review': event.target.review.value,
-          'rating': $(".stars").attr("data-rating")
-          
-          
-      }
-    };
-    
-    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-      type: 'POST',
-      data: JSON.stringify(data),
-      contentType: 'application/json'
-    }).done(function() {
-      event.target.reset();
-      console.log('Your mail is sent!');
-    }).fail(function(error) {
-      console.log('Oops... ' + JSON.stringify(error));
-    });
-  })
+    .querySelector('.review-form')
+    .addEventListener("submit", sendEmail = (event) => {
+      event.preventDefault();
+
+      let data = {
+        'product': event.target.product.value,
+        'name': event.target.name.value,
+        'review': event.target.review.value,
+        'rating': $(".stars").attr("data-rating"),
+        _template: "table",
+
+
+
+      };
+
+      $.ajax('https://formsubmit.co/ajax/josh.fusillo@gmail.com', {
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json'
+      }).done(function () {
+        event.target.reset();
+        console.log('Your mail is sent!');
+      }).fail(function (error) {
+        console.log('Oops... ' + JSON.stringify(error));
+      });
+    })
 }
